@@ -1,5 +1,6 @@
 package br.com.mirante.controller;
 
+
 import br.com.mirante.domain.DTO.AtualizarEventoDTO;
 import br.com.mirante.domain.GestaoEventos;
 import br.com.mirante.service.BuscarEventoService;
@@ -10,6 +11,7 @@ import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +26,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/gestao-eventos")
+@CrossOrigin
 public class GestaoEventoController {
     
     private final BuscarEventoService buscarEventoService;
@@ -54,7 +57,7 @@ public class GestaoEventoController {
     
     @PostMapping("/api/events")
     public ResponseEntity<GestaoEventos> salvarEvento(@RequestBody GestaoEventos gestaoEventos) {
-        
+        System.out.println("processo de salvamento"+ gestaoEventos);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvarEventoService.salvarEvento(gestaoEventos));
         
     }
@@ -68,6 +71,7 @@ public class GestaoEventoController {
     @PutMapping("/api/events/{id}")
     public ResponseEntity<GestaoEventos> atualizarEvento(@PathVariable Long id, @RequestBody @Valid AtualizarEventoDTO dto,
                                                          HttpServletRequest request) {
+        System.out.println("dados: "+id + " - "+ dto);
         return ResponseEntity.ok().body(salvarEventoService.atualizarEvento(id, dto));
         
     }

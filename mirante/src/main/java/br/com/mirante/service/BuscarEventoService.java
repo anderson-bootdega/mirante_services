@@ -23,7 +23,7 @@ public class BuscarEventoService {
    public Page<GestaoEventos> buscarEventos(int numPagina, int tamanhoPagina){
        Pageable pageable = PageRequest.of(numPagina, tamanhoPagina);
        
-       Page<GestaoEventos> eventos =  gestaoEventosRepository.findAll(pageable);
+       Page<GestaoEventos> eventos =  gestaoEventosRepository.findByDeletedFalse(pageable);
        
        if (eventos.isEmpty()) {
            throw new EntityNotFoundException("Nenhum evento encontrado na página " + tamanhoPagina);
@@ -40,6 +40,6 @@ public class BuscarEventoService {
    }
     
     public Optional<GestaoEventos> buscarEventosDetalhado(Long id) {
-        return gestaoEventosRepository.findById(id);
+        return gestaoEventosRepository.findByIdAndDeletedFalse(id);
     }
 }

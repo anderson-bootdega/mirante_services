@@ -36,7 +36,7 @@ public class SalvarEventoService {
         evento.setDescricao(dto.descricao());
         evento.setDataHora(dto.dataHora());
         evento.setLocal(dto.local());
-        
+  
         return gestaoEventosRepository.save(evento);
     }
     
