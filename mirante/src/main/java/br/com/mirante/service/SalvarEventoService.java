@@ -1,6 +1,6 @@
 package br.com.mirante.service;
 
-import br.com.mirante.domain.AtualizarEventoDTO;
+import br.com.mirante.domain.DTO.AtualizarEventoDTO;
 import br.com.mirante.domain.GestaoEventos;
 import br.com.mirante.domain.exception.BusinessException;
 import br.com.mirante.repository.GestaoEventosRepository;

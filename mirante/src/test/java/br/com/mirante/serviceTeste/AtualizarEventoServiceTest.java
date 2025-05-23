@@ -1,6 +1,6 @@
 package br.com.mirante.serviceTeste;
 
-import br.com.mirante.domain.AtualizarEventoDTO;
+import br.com.mirante.domain.DTO.AtualizarEventoDTO;
 import br.com.mirante.domain.GestaoEventos;
 import br.com.mirante.repository.GestaoEventosRepository;
 import br.com.mirante.service.SalvarEventoService;
