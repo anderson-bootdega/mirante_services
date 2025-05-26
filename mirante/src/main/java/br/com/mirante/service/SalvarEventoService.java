@@ -1,6 +1,6 @@
 package br.com.mirante.service;
 
-import br.com.mirante.domain.AtualizarEventoDTO;
+import br.com.mirante.domain.DTO.AtualizarEventoDTO;
 import br.com.mirante.domain.GestaoEventos;
 import br.com.mirante.domain.exception.BusinessException;
 import br.com.mirante.repository.GestaoEventosRepository;
@@ -36,7 +36,7 @@ public class SalvarEventoService {
         evento.setDescricao(dto.descricao());
         evento.setDataHora(dto.dataHora());
         evento.setLocal(dto.local());
-        
+  
         return gestaoEventosRepository.save(evento);
     }
     

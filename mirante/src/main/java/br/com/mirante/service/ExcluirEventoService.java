@@ -17,12 +17,13 @@ public class ExcluirEventoService {
     public void excluirEvento(Long id) {
         GestaoEventos evento = gestaoEventosRepository.findById(id)
                 .orElseThrow(() -> new BusinessException("Evento com ID " + id + " não encontrado."));
-        
+        System.out.println("eventos"+evento);
         if (Boolean.TRUE.equals(evento.getDeleted())) {
             throw new BusinessException("O evento já está marcado como excluído.");
         }
         
         evento.setDeleted(true);
+      
         gestaoEventosRepository.save(evento);
     }
     
